@@ -11,6 +11,8 @@ import 'package:quiz_app/providers/quiz_manager_providers/quiz_manager.dart';
 import 'package:quiz_app/screens/question_screen/prev_next_button.dart';
 import 'package:quiz_app/screens/question_screen/question_text.dart';
 
+import '../../enums/screens_enum.dart';
+import '../database_response_handler/database_response_handler.dart';
 import 'options_view.dart';
 import 'question_no_card.dart';
 
@@ -91,6 +93,9 @@ class _QuestionViewState extends ConsumerState<QuestionView> {
                         }else{
                           /// Submit question
                           ref.read(quizManagerProvider.notifier).submitAnswer(subject: widget.subject);
+                          Navigator.pushNamed(context, DatabaseResponseHandler.routeAddress,
+                          arguments: ScreensEnum.questionScreen
+                          );
                         }
 
                     },);

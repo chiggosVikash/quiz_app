@@ -1,10 +1,14 @@
 
 import 'package:flutter/material.dart';
+import 'package:quiz_app/enums/screens_enum.dart';
 import 'package:quiz_app/screen_route/custom_route.dart';
+import 'package:quiz_app/screens/database_response_handler/database_response_handler.dart';
 import 'package:quiz_app/screens/question_screen/question_view.dart';
+import 'package:quiz_app/screens/quiz_result_screen/quiz_result_screen.dart';
 import 'package:quiz_app/screens/sign_in_screen/sign_in_screen.dart';
 import 'package:quiz_app/screens/splash_screen/splash_screen.dart';
 
+import '../models/submit_quiz_models/quiz_answer_model.dart';
 import '../screens/homepage/homepage.dart';
 import '../screens/subjects_screen/subjects_view.dart';
 
@@ -22,6 +26,14 @@ class ScreenRoute{
       case QuestionView.routeAddress:
         final args = settings.arguments as String;
         return CustomRoute(page: QuestionView(subject: args,), offset: _pageOpenDirection);
+
+      case DatabaseResponseHandler.routeAddress:
+        final args = settings.arguments as ScreensEnum;
+        return CustomRoute(page: DatabaseResponseHandler(screens: args,), offset: _pageOpenDirection);
+        
+      case QuizResultScreen.routeAddress:
+        final args = settings.arguments as QuizAnswerModel ;
+        return CustomRoute(page: QuizResultScreen(resultData: args,), offset: _pageOpenDirection);
 
       default:
        return CustomRoute(page: Scaffold(body: Center(child:

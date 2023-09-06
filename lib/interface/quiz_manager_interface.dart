@@ -16,5 +16,4 @@ abstract class QuizManagerInterface{
   Future<void> nextQuestion({required String subject});
 
 
-
 }

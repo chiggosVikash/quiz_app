@@ -16,7 +16,7 @@ class SaveQuizP extends _$SaveQuizP{
     state = const AsyncValue.loading();
     try{
       final db = MongoConnect().database!;
-      final status = db.collection("quizResult").insert(answerModel.toJson());
+      final status = await db.collection("quizResult").insert(answerModel.toJson());
       if(kDebugMode){
         print("Save status $status");
       }

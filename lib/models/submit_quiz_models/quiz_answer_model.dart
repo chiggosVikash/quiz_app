@@ -6,14 +6,18 @@ part 'quiz_answer_model.g.dart';
 @immutable
 class QuizAnswerModel{
   final String cls;
+  @JsonKey(includeFromJson: true,includeToJson: true)
   final int id = DateTime.now().millisecondsSinceEpoch;
   final int totalQuestion;
   final String email;
   final String subject;
+  @JsonKey(includeFromJson: true,includeToJson: true)
   final String chapter = "";
   final int correctQuestions;
   final int wrongQuestions;
-  final String name ;
+  final String name;
+  @JsonKey(includeFromJson: true,includeToJson: true)
+  final String date = DateTime.now().toIso8601String();
 
   QuizAnswerModel({
    required this.subject,

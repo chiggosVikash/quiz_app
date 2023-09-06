@@ -6,7 +6,7 @@ part of 'save_quiz_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$saveQuizPHash() => r'82f6b207296fbbf10b1c8f107ae46b48faf0acd6';
+String _$saveQuizPHash() => r'50ff0d6863035547cd6fdba21a2e3858c570084b';
 
 /// See also [SaveQuizP].
 @ProviderFor(SaveQuizP)
@@ -22,4 +22,4 @@ final saveQuizPProvider =
 
 typedef _$SaveQuizP = AutoDisposeAsyncNotifier<int>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -11,6 +11,8 @@ import 'package:quiz_app/models/submit_quiz_models/quiz_answer_model.dart';
 import 'package:quiz_app/providers/quiz_manager_providers/current_question_provider.dart';
 import 'package:quiz_app/providers/quiz_manager_providers/get_question_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import 'save_quiz_provider.dart';
 part 'quiz_manager.g.dart';
 @Riverpod(keepAlive: true)
 class QuizManager extends _$QuizManager with LocalDbQuery implements QuizManagerInterface {
@@ -21,8 +23,14 @@ class QuizManager extends _$QuizManager with LocalDbQuery implements QuizManager
 
   int _totalQuestionCount = 0;
 
+  QuizAnswerModel? _answerData;
+
   int get totalQuestion{
     return _totalQuestionGeneratedIds.length;
+  }
+
+  QuizAnswerModel? get answerData{
+    return _answerData;
   }
 
   // int get _totalQuestionCount {
@@ -76,15 +84,26 @@ class QuizManager extends _$QuizManager with LocalDbQuery implements QuizManager
 
   }
 
+
+  // Future<QuizAnswerModel> answerData ()async{
+  //   final correctCount = _totalCorrectAnswer();
+  //   final data = await userEmailName();
+  //   final totalInCorrectCount = totalQuestion - correctCount;
+  //   final quizAnswer = QuizAnswerModel(name:data.name,subject: subject, cls: "BCA", email: data.email, correctQuestions: correctCount,
+  //       totalQuestion: totalQuestion, wrongQuestions: totalInCorrectCount);
+  //
+  //
+  // }
+
   @override
   Future<void> submitAnswer({required String subject,}) async{
     final correctCount = _totalCorrectAnswer();
     final data = await userEmailName();
     final totalInCorrectCount = totalQuestion - correctCount;
-
     final quizAnswer = QuizAnswerModel(name:data.name,subject: subject, cls: "BCA", email: data.email, correctQuestions: correctCount,
         totalQuestion: totalQuestion, wrongQuestions: totalInCorrectCount);
-
+    _answerData = quizAnswer;
+    ref.read(saveQuizPProvider.notifier).saveQuiz(_answerData!);
   }
 
   int _totalCorrectAnswer(){
