@@ -19,8 +19,12 @@ class MongoConnect{
     if(database != null) return;
     try{
       database = await Db.create(_url);
+
       if(database == null) return;
-      database!.open();
+      await database!.open();
+      if(kDebugMode){
+        print("Database state ${database?.state}");
+      }
     }catch(e){
       if(kDebugMode){
         print(e);

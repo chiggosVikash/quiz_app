@@ -78,16 +78,24 @@ class _QuestionViewState extends ConsumerState<QuestionView> {
 
                   }
                 ),
-                PrevNdNextButton(
-                  previousAction: (){
-                  },
-                  nextAction: (){
-                    final currentQuestionNo = ref.read(currentQuestionPProvider);
-                    if(currentQuestionNo < Constants.maxQuestion){
-                      ref.read(quizManagerProvider.notifier).getQuestion(subject: widget.subject);
-                    }
+                Consumer(
+                  builder: (context,ref,child) {
+                    final currentQuestionNo = ref.watch(currentQuestionPProvider);
+                    return PrevNdNextButton(
+                      previousAction: currentQuestionNo <=1 ? null : (){
+                        ref.read(quizManagerProvider.notifier).backQuestion();
+                      },
+                      nextAction: (){
+                        if(currentQuestionNo < Constants.maxQuestion){
+                          ref.read(quizManagerProvider.notifier).nextQuestion(subject: widget.subject);
+                        }else{
+                          /// Submit question
+                          ref.read(quizManagerProvider.notifier).submitAnswer(subject: widget.subject);
+                        }
 
-                },)
+                    },);
+                  }
+                )
               ],
             ),
           ],

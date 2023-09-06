@@ -7,9 +7,13 @@ abstract class QuizManagerInterface{
 
   void addAnswer({required QuestionModel question, required String answer});
 
-  Future<void> submitAnswer();
+  Future<void> submitAnswer({required String subject});
 
   void currentQuestionNo();
+
+  void backQuestion();
+
+  Future<void> nextQuestion({required String subject});
 
 
 

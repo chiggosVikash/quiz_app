@@ -12,4 +12,17 @@ class CurrentQuestionP extends _$CurrentQuestionP{
   void changeCurrentQuestion(int questionNo){
     state = questionNo;
   }
+
+
+
+  int backCurrentQuestionNo(){
+    if(state <= 0) return 0;
+    state = state - 1;
+    return state;
+  }
+
+  int nextQuestionNo(){
+    state = state += 1;
+    return state;
+  }
 }

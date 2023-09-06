@@ -8,7 +8,7 @@ import '../../providers/quiz_manager_providers/current_question_provider.dart';
 
 class PrevNdNextButton extends ConsumerStatefulWidget {
   final VoidCallback nextAction;
-  final VoidCallback previousAction;
+  final VoidCallback? previousAction;
   const PrevNdNextButton({super.key,required this.nextAction,required this.previousAction});
 
   @override

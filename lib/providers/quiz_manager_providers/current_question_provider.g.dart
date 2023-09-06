@@ -6,7 +6,7 @@ part of 'current_question_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$currentQuestionPHash() => r'517116afa08c6aa6a8a2a53bd465a3a722e1b360';
+String _$currentQuestionPHash() => r'e886c5bebf550d95bf0a6da3b02804eea9defb00';
 
 /// See also [CurrentQuestionP].
 @ProviderFor(CurrentQuestionP)

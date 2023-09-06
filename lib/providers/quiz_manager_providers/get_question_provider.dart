@@ -31,4 +31,9 @@ class GetQuestionP extends _$GetQuestionP {
 
 
   }
+
+  Future<QuestionModel?> changeQuestion(QuestionModel question)async{
+    state = AsyncValue.data(question);
+    return state.value;
+  }
 }

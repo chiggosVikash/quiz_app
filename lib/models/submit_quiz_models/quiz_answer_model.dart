@@ -1,7 +1,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
-
+part 'quiz_answer_model.g.dart';
 @JsonSerializable()
 @immutable
 class QuizAnswerModel{
@@ -13,6 +13,7 @@ class QuizAnswerModel{
   final String chapter = "";
   final int correctQuestions;
   final int wrongQuestions;
+  final String name ;
 
   QuizAnswerModel({
    required this.subject,
@@ -20,6 +21,9 @@ class QuizAnswerModel{
    required this.email,
    required this.correctQuestions,
    required this.totalQuestion,
-   required this.wrongQuestions
+   required this.wrongQuestions,
+    required this.name
 });
+
+  Map<String,dynamic> toJson() => _$QuizAnswerModelToJson(this);
 }
