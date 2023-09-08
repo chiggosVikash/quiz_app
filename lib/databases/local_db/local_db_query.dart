@@ -27,6 +27,14 @@ mixin class LocalDbQuery {
     return response;
   }
 
+  Future<String> imageUrl()async{
+    final user = await _db.writeTxn(() {
+      return _db.collection<UserModel>().buildQuery<UserModel>().findFirst();
+
+    });
+    return user!.imageUrl;
+  }
+
 
   Future<({String email, String name})> userEmailName() async {
     final user = await _db.writeTxn(() {

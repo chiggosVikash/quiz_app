@@ -15,6 +15,7 @@ QuizAnswerModel _$QuizAnswerModelFromJson(Map<String, dynamic> json) =>
       totalQuestion: json['totalQuestion'] as int,
       wrongQuestions: json['wrongQuestions'] as int,
       name: json['name'] as String,
+      imageUrl: json['imageUrl'] as String,
     );
 
 Map<String, dynamic> _$QuizAnswerModelToJson(QuizAnswerModel instance) =>
@@ -28,5 +29,6 @@ Map<String, dynamic> _$QuizAnswerModelToJson(QuizAnswerModel instance) =>
       'correctQuestions': instance.correctQuestions,
       'wrongQuestions': instance.wrongQuestions,
       'name': instance.name,
+      'imageUrl': instance.imageUrl,
       'date': instance.date,
     };

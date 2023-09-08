@@ -35,8 +35,9 @@ class LeaderBoardModel {
   /// Creates a [LeaderBoardModel] instance from a JSON map.
   ///
   /// The [json] parameter is a Map containing JSON data to deserialize.
-  factory LeaderBoardModel.fromJson(Map<String, dynamic> json) =>
-      _$LeaderBoardModelFromJson(json);
+  factory LeaderBoardModel.fromJson(Map<String, dynamic> json) => LeaderBoardModel(
+      imageUrl: json["_id"]["imageUrl"], name: json["_id"]["name"], emailId: json["_id"]["email"], correctCount: json["totalCount"]);
+
 
   /// Converts this [LeaderBoardModel] instance to a JSON map.
   ///

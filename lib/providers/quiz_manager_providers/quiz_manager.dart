@@ -86,8 +86,11 @@ class QuizManager extends _$QuizManager with LocalDbQuery implements QuizManager
   Future<void> submitAnswer({required String subject,}) async{
     final correctCount = _totalCorrectAnswer();
     final data = await userEmailName();
+    final image = await imageUrl();
     final totalInCorrectCount = totalQuestion - correctCount;
-    final quizAnswer = QuizAnswerModel(name:data.name,subject: subject, cls: "BCA", email: data.email, correctQuestions: correctCount,
+    final quizAnswer = QuizAnswerModel(
+        imageUrl: image,
+        name:data.name,subject: subject, cls: "BCA", email: data.email, correctQuestions: correctCount,
         totalQuestion: totalQuestion, wrongQuestions: totalInCorrectCount);
     _answerData = quizAnswer;
     ref.read(saveQuizPProvider.notifier).saveQuiz(_answerData!);

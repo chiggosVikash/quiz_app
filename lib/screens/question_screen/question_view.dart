@@ -76,18 +76,21 @@ class _QuestionViewState extends ConsumerState<QuestionView> {
                             // }),
                           ));
                     }, error: (e,st)=> const Center(child: Text("Error Something went wrong"),),
-                        loading: ()=> const Center(child: RepaintBoundary(child: CircularProgressIndicator()),));
+                        loading: ()=> SizedBox(
+                            height: context.height*.5,
+                            child: const Center(child: RepaintBoundary(child: CircularProgressIndicator()),)));
 
                   }
                 ),
                 Consumer(
                   builder: (context,ref,child) {
                     final currentQuestionNo = ref.watch(currentQuestionPProvider);
+                    final questionValue = ref.watch(getQuestionPProvider);
                     return PrevNdNextButton(
                       previousAction: currentQuestionNo <=1 ? null : (){
                         ref.read(quizManagerProvider.notifier).backQuestion();
                       },
-                      nextAction: (){
+                      nextAction: questionValue.isRefreshing ? null : (){
                         if(currentQuestionNo < Constants.maxQuestion){
                           ref.read(quizManagerProvider.notifier).nextQuestion(subject: widget.subject);
                         }else{

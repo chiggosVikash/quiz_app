@@ -42,13 +42,16 @@ class QuizAnswerModel {
   /// The name of the user who answered the quiz.
   final String name;
 
+  /// Image of player
+  final String imageUrl;
+
   /// The date and time when the quiz was answered, represented in ISO 8601 format.
   @JsonKey(includeFromJson: true, includeToJson: true)
   final String date = DateTime.now().toIso8601String();
 
   /// Creates a [QuizAnswerModel] instance.
   ///
-  /// The [subject], [cls], [email], [correctQuestions], [totalQuestion], [wrongQuestions], and [name]
+  /// The [subject], [cls], [email], [correctQuestions], [totalQuestion], [wrongQuestions], [imageUrl] and [name]
   /// parameters are required.
   QuizAnswerModel({
     required this.subject,
@@ -58,6 +61,7 @@ class QuizAnswerModel {
     required this.totalQuestion,
     required this.wrongQuestions,
     required this.name,
+    required this.imageUrl
   });
 
   /// Converts this [QuizAnswerModel] instance to a JSON map.
