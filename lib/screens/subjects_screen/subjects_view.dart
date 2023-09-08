@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/extensions/media_query_extension.dart';
+import 'package:quiz_app/extensions/theme_extension.dart';
+import 'package:quiz_app/screens/leader_board_screen/leader_board_screen.dart';
 
 import '../../constants/constant.dart';
 import '../../providers/quiz_manager_providers/get_user_rank_provider.dart';
@@ -19,10 +21,18 @@ class _SubjectsViewState extends ConsumerState<SubjectsView> {
 
   @override
   Widget build(BuildContext context) {
-    final rankValue = ref.watch(getUserRankPProvider);
+    // final rankValue = ref.watch(getUserRankPProvider);
     return Scaffold(
       drawer: const Drawer(),
-      appBar: AppBar(title:  const Text("Subjects"),),
+      appBar: AppBar(title:  const Text("Subjects"),
+      actions: [
+        IconButton(onPressed: (){
+          Navigator.pushNamed(context, LeaderBoardScreen.routeAddress);
+        }, icon: const Icon(Icons.leaderboard),
+        color: context.themeData.colorScheme.primary,
+        )
+      ],
+      ),
       body: GridView.builder(
         padding: EdgeInsets.only(top: context.height*.03,left: context.width*.01,right: context.width*.01),
           itemCount: Constants.subjects.length,

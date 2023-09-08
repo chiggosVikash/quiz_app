@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/enums/screens_enum.dart';
 import 'package:quiz_app/screen_route/custom_route.dart';
 import 'package:quiz_app/screens/database_response_handler/database_response_handler.dart';
+import 'package:quiz_app/screens/leader_board_screen/leader_board_screen.dart';
 import 'package:quiz_app/screens/question_screen/question_view.dart';
 import 'package:quiz_app/screens/quiz_result_screen/quiz_result_screen.dart';
 import 'package:quiz_app/screens/sign_in_screen/sign_in_screen.dart';
@@ -34,6 +35,9 @@ class ScreenRoute{
       case QuizResultScreen.routeAddress:
         final args = settings.arguments as QuizAnswerModel ;
         return CustomRoute(page: QuizResultScreen(resultData: args,), offset: _pageOpenDirection);
+
+      case LeaderBoardScreen.routeAddress:
+        return CustomRoute(page: const LeaderBoardScreen(), offset: _pageOpenDirection);
 
       default:
        return CustomRoute(page: Scaffold(body: Center(child:

@@ -6,7 +6,7 @@ part of 'get_user_rank_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getUserRankPHash() => r'db0dfcfd9f3b30c85c6265af8ec8ff15d0ebe571';
+String _$getUserRankPHash() => r'5bc1f31f78a4bf11f41d9e6d226208865e26887d';
 
 /// See also [GetUserRankP].
 @ProviderFor(GetUserRankP)
