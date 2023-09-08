@@ -14,6 +14,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'save_quiz_provider.dart';
 part 'quiz_manager.g.dart';
+
+
 @Riverpod(keepAlive: true)
 class QuizManager extends _$QuizManager with LocalDbQuery implements QuizManagerInterface {
 
@@ -33,12 +35,6 @@ class QuizManager extends _$QuizManager with LocalDbQuery implements QuizManager
     return _answerData;
   }
 
-  // int get _totalQuestionCount {
-  //
-  //   final count = ref.watch(getTotalQuestionCountPProvider);
-  //   print("Count $count");
-  //   return count.value ?? 0;
-  // }
 
   @override
   List<AnswerCollectionModel> build() {
@@ -85,15 +81,6 @@ class QuizManager extends _$QuizManager with LocalDbQuery implements QuizManager
   }
 
 
-  // Future<QuizAnswerModel> answerData ()async{
-  //   final correctCount = _totalCorrectAnswer();
-  //   final data = await userEmailName();
-  //   final totalInCorrectCount = totalQuestion - correctCount;
-  //   final quizAnswer = QuizAnswerModel(name:data.name,subject: subject, cls: "BCA", email: data.email, correctQuestions: correctCount,
-  //       totalQuestion: totalQuestion, wrongQuestions: totalInCorrectCount);
-  //
-  //
-  // }
 
   @override
   Future<void> submitAnswer({required String subject,}) async{

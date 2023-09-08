@@ -38,3 +38,6 @@ class MongoConnect{
 
 
 }
+
+// db.quizResult.aggregate([{$group:{_id:"$email",totalCorrect:{$sum:"$correctQuestions"}}},{$setWindowFields:{sortBy:{totalCorrect:-1},output:{rankwise:{$rank:{}}}}},{$project:{email:"$_id",_id:0,rankwise:1}},{$match:{email:"abc@gmail.com"}},{$project:{email:0}}]).pretty()
+// db.quizResult.aggregate([{$group:{_id:"$email",totalCorrect:{$sum:"$correctQuestions"}}},{$setWindowFields:{sortBy:{totalCorrect:-1},output:{rankwise:{$rank:{}}}}},{$match:{_id:"abc@gmail.com"}},{$project:{rankwise:1,_id:0}}]).pretty()

@@ -10,8 +10,8 @@ LeaderBoardModel _$LeaderBoardModelFromJson(Map<String, dynamic> json) =>
     LeaderBoardModel(
       imageUrl: json['imageUrl'] as String,
       name: json['name'] as String,
-      correctCount: json['correctCount'] as int,
       emailId: json['emailId'] as String,
+      correctCount: json['correctCount'] as int,
     );
 
 Map<String, dynamic> _$LeaderBoardModelToJson(LeaderBoardModel instance) =>

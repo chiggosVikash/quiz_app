@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/extensions/media_query_extension.dart';
 
 import '../../constants/constant.dart';
+import '../../providers/quiz_manager_providers/get_user_rank_provider.dart';
 import '../question_screen/question_view.dart';
 
-class SubjectsView extends StatefulWidget {
+class SubjectsView extends ConsumerStatefulWidget {
   static const routeAddress = "/homepage";
   const SubjectsView({super.key});
 
   @override
-  State<SubjectsView> createState() => _SubjectsViewState();
+  ConsumerState<SubjectsView> createState() => _SubjectsViewState();
 }
 
-class _SubjectsViewState extends State<SubjectsView> {
+class _SubjectsViewState extends ConsumerState<SubjectsView> {
+
   @override
   Widget build(BuildContext context) {
+    final rankValue = ref.watch(getUserRankPProvider);
     return Scaffold(
       drawer: const Drawer(),
       appBar: AppBar(title:  const Text("Subjects"),),
