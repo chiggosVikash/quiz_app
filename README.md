@@ -10,6 +10,10 @@ This Flutter quiz application allows users to play quizzes on various subjects, 
 #### Interactive UI: An intuitive and user-friendly interface for seamless quiz-taking.
 
 ## Screenshots
+![WhatsApp Image 2023-09-09 at 12 51 56](https://github.com/chiggosVikash/quiz_app/assets/98211278/7b8b4537-f4e3-42a6-a0c6-3078f1cae1b7)
+![WhatsApp Image 2023-09-09 at 12 51 54](https://github.com/chiggosVikash/quiz_app/assets/98211278/3367a8f5-546f-4a0e-9690-c9e55049d336)
+![WhatsApp Image 2023-09-09 at 12 51 52](https://github.com/chiggosVikash/quiz_app/assets/98211278/5b063bfa-09cb-49f0-af76-0ca3032bb5f9)
+![WhatsApp Image 2023-09-09 at 12 51 51](https://github.com/chiggosVikash/quiz_app/assets/98211278/ca73b381-a634-4771-9369-f3dece453d92)
 
 
 ## Installation
