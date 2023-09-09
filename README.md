@@ -16,12 +16,11 @@ This Flutter quiz application allows users to play quizzes on various subjects, 
 1. git clone https://github.com/yourusername/quiz-app.git
 
 2. Navigate to the project directory:
-cd quiz-app
+  cd quiz-app
 
 3. Install dependencies:
   dart/flutter pub get
-
-4.Run flutter : flutter run
+4. Run flutter : flutter run
 
 ## Usage
 Open the application on your mobile device or emulator.
