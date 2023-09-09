@@ -20,6 +20,7 @@ cd quiz-app
 
 3. Install dependencies:
   dart/flutter pub get
+
 4.Run flutter : flutter run
 
 ## Usage
