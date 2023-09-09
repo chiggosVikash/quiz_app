@@ -161,6 +161,9 @@ class SignInWithGoogle extends _$SignInWithGoogle with LocalDbQuery{
 
       return "valid";
     } catch (e) {
+      if (kDebugMode) {
+        print("Error $e");
+      }
       /// If an error occurs during validation, handle it.
       if (kDebugMode) {
         rethrow;

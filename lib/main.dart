@@ -11,7 +11,6 @@ Future<void> main() async{
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await Firebase.initializeApp();
-  await MongoConnect().connect();
   await LocalDbSetup().setup();
   runApp(const ProviderScope(child: MyApp()));
   FlutterNativeSplash.remove();

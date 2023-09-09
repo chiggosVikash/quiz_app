@@ -28,7 +28,7 @@ class SplashScreen extends ConsumerWidget {
     });
 
     return const Scaffold(
-      body: Center(child: Text("Splash Screen"),),
+      body: Center(child: Text("Loading app..."),),
     );
   }
 }

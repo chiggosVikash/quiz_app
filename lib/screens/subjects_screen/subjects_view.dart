@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/extensions/media_query_extension.dart';
 import 'package:quiz_app/extensions/theme_extension.dart';
+import 'package:quiz_app/helper_widgets/logout_confirmation_dialogue.dart';
 import 'package:quiz_app/screens/leader_board_screen/leader_board_screen.dart';
 
 import '../../constants/constant.dart';
@@ -30,6 +31,12 @@ class _SubjectsViewState extends ConsumerState<SubjectsView> {
           Navigator.pushNamed(context, LeaderBoardScreen.routeAddress);
         }, icon: const Icon(Icons.leaderboard),
         color: context.themeData.colorScheme.primary,
+        ),
+
+        IconButton(onPressed: (){
+          _showLogoutConfirmationDialogue();
+        }, icon: const Icon(Icons.logout),
+          color: context.themeData.colorScheme.primary,
         )
       ],
       ),
@@ -89,5 +96,11 @@ class _SubjectsViewState extends ConsumerState<SubjectsView> {
               );
             });
           }),);
+  }
+
+  void _showLogoutConfirmationDialogue(){
+    showDialog(context: context, builder: (context){
+      return LogoutConfirmationDialogue();
+    });
   }
 }
